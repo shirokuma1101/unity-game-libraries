@@ -1,0 +1,10 @@
+{
+  "name": "com.shirokuma1101.unitygamelibraries",
+  "displayName": "Unity Game Libraries",
+  "description": "Game Libraries for Unity",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "author": {
+    "name": "Shirokuma1101"
+  }
+}

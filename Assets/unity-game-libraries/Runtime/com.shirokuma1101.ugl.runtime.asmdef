@@ -1,5 +1,5 @@
 {
-  "name": "com.shirokuma1101.ugl.runtime",
+  "name": "UGL.Runtime",
   "rootNamespace": "",
   "references": [
     "UniTask"

@@ -144,24 +144,13 @@ namespace UGL.Easing
 
             public static float In(float n) => 1.0f - Out(1.0f - n);
             public static float Out(float n)
-            {
-                if (n < 1.0f / D1)
-                {
-                    return N1 * n * n;
-                }
-                else if (n < 2.0f / D1)
-                {
-                    return N1 * (n -= 1.5f / D1) * n + 0.75f;
-                }
-                else if (n < 2.5f / D1)
-                {
-                    return N1 * (n -= 2.25f / D1) * n + 0.9375f;
-                }
-                else
-                {
-                    return N1 * (n -= 2.625f / D1) * n + 0.984375f;
-                }
-            }
+                => n < 1.0f / D1
+                ? N1 * n * n
+                : n < 2.0f / D1
+                ? N1 * (n -= 1.5f / D1) * n + 0.75f
+                : n < 2.5f / D1
+                ? N1 * (n -= 2.25f / D1) * n + 0.9375f
+                : N1 * (n -= 2.625f / D1) * n + 0.984375f;
             public static float InOut(float n)
                 => n < 0.5f
                 ? (1.0f - Out(1.0f - 2.0f * n)) / 2.0f
@@ -235,7 +224,7 @@ namespace UGL.Easing
             {
                 x -= x_min;
                 x_max -= x_min;
-                x_min = 0.0f;
+                //x_min = 0.0f;
             }
 
             // If y_start is not zero, scale the output range accordingly.
@@ -245,7 +234,7 @@ namespace UGL.Easing
             }
 
             // Normalize x to the range [0, 1].
-            float y = x / x_max;
+            var y = x / x_max;
 
             // Scale the normalized value to the output range.
             return (y_end * y) + y_start;

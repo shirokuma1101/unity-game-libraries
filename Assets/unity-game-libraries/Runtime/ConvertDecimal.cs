@@ -22,10 +22,10 @@ namespace UGL.ConvertDecimal
                 throw new Exception("Base value is too large.");
             }
 
-            for (int i = 0; i < src.Length; i++)
+            for (var i = 0; i < src.Length; i++)
             {
-                char c = src[i];
-                uint charValue = (uint)CHARACTERS.IndexOf(c);
+                var c = src[i];
+                var charValue = (uint)CHARACTERS.IndexOf(c);
                 converted = converted * n + charValue;
             }
 
@@ -40,7 +40,7 @@ namespace UGL.ConvertDecimal
         /// <returns></returns>
         static public string ConvertDecToBaseN(ulong src, uint n = MAX_BASE)
         {
-            string converted = "";
+            var converted = string.Empty;
 
             if (n > MAX_BASE)
             {
@@ -49,7 +49,7 @@ namespace UGL.ConvertDecimal
 
             while (src > 0)
             {
-                int remainder = (int)(src % n);
+                var remainder = (int)(src % n);
                 converted = CHARACTERS[remainder] + converted;
                 src /= n;
             }
